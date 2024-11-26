@@ -11,6 +11,55 @@
    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://font.googleapis/css?family">  
 </head>
+    <div id="preloader">
+  <div class="loader"></div>
+</div>
+    <style>
+/* Preloader Styling */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* White background */
+  z-index: 9999; /* Ensure it's above all other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loader Animation */
+.loader {
+  border: 6px solid #f3f3f3; /* Light gray */
+  border-top: 6px solid #ff6600; /* Orange for the spinner */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+    <script>
+  // Wait for the entire page to load
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0"; // Fade out
+    setTimeout(() => {
+      preloader.style.display = "none"; // Remove from view
+    }, 500); // Allow time for fade-out animation
+  });
+</script>
+
 <body>
     <header class="header">
         <!-- Left side: Logo -->
